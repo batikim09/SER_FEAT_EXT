@@ -1,0 +1,9 @@
+#Requirements
+pyyaml 
+h5py 
+scipy  
+sympy 
+nose
+scikit-learn
+librosa
+pyaudio
