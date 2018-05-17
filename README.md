@@ -5,7 +5,7 @@ Maintainer: [**batikim09**](https://github.com/**github-user**/) (**batikim09**)
 
 <a id="top"/>
 
-This folder has source codes of feature extraction and model trainer for speech emotion recognition. Firstly, feature vectors are extracted from each utterance wav file. Secondly, feature vectors are collected, and it generatates cross-validation folds and save them in a H5 database.
+This folder has source codes of feature extraction for speech emotion recognition. Firstly, feature vectors are extracted from each utterance wav file. Secondly, feature vectors are collected, and it generatates cross-validation folds and save them in a H5 database.
 
 ##Contents
 1. <a href="#1--installation-requirements">Installation Requirements</a>
@@ -72,6 +72,8 @@ See "./scripts/compose_h5db.sh".
 
 python ./src/h5db_builder.py -input ./meta/sanity.enterface.txt.raw.out -m_steps 16000 -c_idx 2 -n_cc 43 -c_len 1600 --two_d -mt 1:3:4:5:6:7 -out ./h5db/ENT.RAW.3cls.av
 
+It generates a h5 database "ENT.RAW.3cls.av" in ./h5db/.
+The database will be used in trainer (https://github.com/batikim09/SER_KERAS_TF_TRAINER).
 
 ## 3. References <a id="3--references"/>
 
