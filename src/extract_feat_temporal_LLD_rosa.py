@@ -37,6 +37,8 @@ if args.min and args.max:
 else:
 	min_max = None
 
+feat_ext = FeatExt(min_max)
+
 #initial gain thresholds
 min_gain = np.finfo(np.float32).max
 max_gain = np.finfo(np.float32).min
@@ -86,13 +88,13 @@ if args.meta_file != None:
 				max_gain = max	
 		else:
 			if args.log_spec:
-				extract_log_spectrogram_file(meta_info[0], file = feat_file, min_max = min_max)
+				feat_ext.extract_log_spectrogram_file(meta_info[0], file = feat_file)
 			elif args.pca_log_spec:
-				extract_pca_logspec_file(meta_info[0], file = feat_file, min_max = min_max)
+				feat_ext.extract_pca_logspec_file(meta_info[0], file = feat_file)
 			elif args.wav:
-				extract_wav_file(meta_info[0], file = feat_file, min_max = min_max)
+				feat_ext.extract_wav_file(meta_info[0], file = feat_file)
 			else:
-				extract_melspec_file(meta_info[0], file = feat_file, n_mels = 80, min_max = min_max)
+				feat_ext.extract_melspec_file(meta_info[0], file = feat_file, n_mels = 80)
 		
 		print("# " + str(count) + "file: " +  str(meta_info[0]) + " -> " + feat_file)
 		new_meta_file.write(meta_info[0] + '\t' + meta_info[1] + '\t' + meta_info[2] + '\t' + meta_info[3] + '\t' + meta_info[4] + '\t' + meta_info[5] + '\t' + meta_info[6] + '\t' + meta_info[7] + '\t' + feat_file + '\n')
