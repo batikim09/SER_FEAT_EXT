@@ -97,7 +97,13 @@ if args.meta_file != None:
 				feat_ext.extract_melspec_file(meta_info[0], file = feat_file, n_mels = 80)
 		
 		print("# " + str(count) + "file: " +  str(meta_info[0]) + " -> " + feat_file)
-		new_meta_file.write(meta_info[0] + '\t' + meta_info[1] + '\t' + meta_info[2] + '\t' + meta_info[3] + '\t' + meta_info[4] + '\t' + meta_info[5] + '\t' + meta_info[6] + '\t' + meta_info[7] + '\t' + feat_file + '\n')
+
+		new_meta_line = ""
+		for meta in meta_info:
+			new_meta_line += meta + '\t'
+		new_meta_line += feat_file + '\n'
+		
+		new_meta_file.write(new_meta_line)
 		
 	print('total utterances in meta map: ' + str(count))
 	new_meta_file.close()
